@@ -10,18 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.sierra.basicrpg.MainActivity">
 
-    <Button
-        android:text="Overworld"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
-        android:id="@+id/to_overworld"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:onClick="toOverworld (MainActivity)"
-        android:hint="@string/to_overworld"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,11 +25,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button2"
-        android:onClick="makeToast (MainActivity)"
-        android:layout_alignBaseline="@+id/to_overworld"
-        android:layout_alignBottom="@+id/to_overworld"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
+        android:onClick="makeToast"
+        android:layout_marginTop="73dp"
+        android:layout_below="@+id/to_overworld"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Overworld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/to_overworld"
+        android:onClick="toOverworld"
+        android:hint="@string/to_overworld"
+        android:layout_marginTop="126dp"
+        android:layout_below="@+id/textView"
+        android:layout_toLeftOf="@+id/button2"
+        android:layout_toStartOf="@+id/button2" />
+
+    <Button
+        android:text="Map Location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/to_MapLocation"
+        android:onClick="toMapLocation"
+        android:hint="@string/to_mapLocation"
+        android:layout_above="@+id/button2"
+        android:layout_toRightOf="@+id/button2"
+        android:layout_toEndOf="@+id/button2" />
 
 
 </RelativeLayout>

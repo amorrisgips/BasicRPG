@@ -24,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void toMapLocation(View view) {
+        Button button = (Button) findViewById(R.id.to_MapLocation);
+        Intent intent = new Intent(this, MapLocation.class);
+        startActivity(intent);
+    }
+
     public void makeToast(View view) {
         Toast.makeText(getApplicationContext(),"hi", Toast.LENGTH_LONG).show();
     }

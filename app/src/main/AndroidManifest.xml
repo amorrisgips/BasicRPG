@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Overworld"></activity>
+        <activity android:name=".Overworld" />
+        <activity android:name=".MapLocation"></activity>
     </application>
 
 </manifest>
