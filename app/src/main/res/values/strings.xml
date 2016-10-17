@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Basic RPG</string>
+    <string name="to_overworld">to_overworld</string>
 </resources>
