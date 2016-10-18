@@ -2,4 +2,6 @@
     <string name="app_name">Basic RPG</string>
     <string name="to_overworld">to_overworld</string>
     <string name="to_mapLocation">to_mapLocation</string>
+    <string name="mess_disp">cow</string>
+    <string name="saveData">RPG_saveData</string>
 </resources>
