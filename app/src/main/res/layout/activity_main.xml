@@ -54,5 +54,15 @@
         android:layout_toLeftOf="@+id/button2"
         android:layout_toStartOf="@+id/button2" />
 
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/to_MapLocation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
+        android:id="@+id/button3"
+        android:onClick="toNewGame" />
+
 
 </RelativeLayout>

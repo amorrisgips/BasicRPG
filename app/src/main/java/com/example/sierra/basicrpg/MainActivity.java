@@ -24,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void toNewGame(View view) {
+        Intent intent = new Intent(this, CharacterScreen.class);
+        startActivity(intent);
+    }
+
     public void toMapLocation(View view) {
         Button button = (Button) findViewById(R.id.to_MapLocation);
         Intent intent = new Intent(this, MapLocation.class);

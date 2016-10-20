@@ -4,4 +4,10 @@
     <string name="to_mapLocation">to_mapLocation</string>
     <string name="mess_disp">cow</string>
     <string name="saveData">RPG_saveData</string>
+    <string name="charcterName">Character Name</string>
+    <string name="permadeath">Permadeath</string>
+    <string name="interactive">Interactive leveling</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
