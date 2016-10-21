@@ -1,13 +1,12 @@
 <resources>
     <string name="app_name">Basic RPG</string>
-    <string name="to_overworld">to_overworld</string>
-    <string name="to_mapLocation">to_mapLocation</string>
-    <string name="mess_disp">cow</string>
-    <string name="saveData">RPG_saveData</string>
+    <string name="overworld">Overworld</string>
+    <string name="mapLocation">Map Location</string>
     <string name="charcterName">Character Name</string>
     <string name="permadeath">Permadeath</string>
     <string name="interactive">Interactive leveling</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="versionToast">0.0.1</string>
+    <string name="versionText">Version</string>
+    <string name="settings">Settings</string>
+    <string name="newGame">New Game</string>
 </resources>

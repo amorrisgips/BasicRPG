@@ -18,24 +18,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void toOverworld(View view) {
-        Button button = (Button) findViewById(R.id.to_overworld);
-        Intent intent = new Intent(this, Overworld.class);
-        startActivity(intent);
-    }
-
     public void toNewGame(View view) {
         Intent intent = new Intent(this, CharacterScreen.class);
         startActivity(intent);
     }
 
-    public void toMapLocation(View view) {
-        Button button = (Button) findViewById(R.id.to_MapLocation);
-        Intent intent = new Intent(this, MapLocation.class);
+    public void toSettings(View view) {
+        Intent intent = new Intent(this, Settings.class);
         startActivity(intent);
     }
 
     public void makeToast(View view) {
-        Toast.makeText(getApplicationContext(),"hi", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),R.string.versionToast, Toast.LENGTH_LONG).show();
     }
 }
