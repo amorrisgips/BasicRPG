@@ -9,4 +9,6 @@
     <string name="versionText">Version</string>
     <string name="settings">Settings</string>
     <string name="newGame">New Game</string>
+    <string name="edit_message">Test</string>
+    <string name="save">Save</string>
 </resources>
