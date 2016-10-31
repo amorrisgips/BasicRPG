@@ -20,11 +20,16 @@ public class LoadGame extends AppCompatActivity {
     }
 
     public void dispmess(View view) throws IOException {
-        int se;
+        byte[] se = new byte[20];
+        int re;
+        String s = "";
         FileInputStream fis = openFileInput(FILENAME);
-        se = fis.read();
-
+        re = fis.read(se);
+        for(int i = 0; i < re; i++)
+        {
+            s = s + (char) se[i];
+        }
         TextView textView = (TextView) findViewById(R.id.messplay);
-        textView.setText(se);
+        textView.setText(s);
     }
 }

@@ -32,42 +32,12 @@ public class CharacterScreen extends AppCompatActivity {
 
     public void saveInfo(View view) throws IOException {
 
-        String message = editText.getText().toString();
+        String message = charName.getText().toString();
 
-        Save(FILENAME, )
-
+        FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+        fos.write( message.getBytes());
+        fos.close();
     }
 
-    public static void Save(File file, String[] data)
-    {
-        FileOutputStream fos = null;
-        try
-        {
-            fos = new FileOutputStream(file);
-        }
-        catch (FileNotFoundException e) {e.printStackTrace();}
-        try
-        {
-            try
-            {
-                for (int i = 0; i<data.length; i++)
-                {
-                    fos.write(data[i].getBytes());
-                    if (i < data.length-1)
-                    {
-                        fos.write("\n".getBytes());
-                    }
-                }
-            }
-            catch (IOException e) {e.printStackTrace();}
-        }
-        finally
-        {
-            try
-            {
-                fos.close();
-            }
-            catch (IOException e) {e.printStackTrace();}
-        }
-    }
+
 }
