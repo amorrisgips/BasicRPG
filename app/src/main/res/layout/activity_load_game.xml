@@ -28,4 +28,37 @@
         android:onClick="dispmess"
         android:layout_below="@+id/messplay"
         android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:text="@string/interactive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:id="@+id/il"
+        android:clickable="false"
+        android:layout_above="@+id/button7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp" />
+
+    <CheckBox
+        android:text="@string/permadeath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pd"
+        android:clickable="false"
+        android:layout_alignBaseline="@+id/il"
+        android:layout_alignBottom="@+id/il"
+        android:layout_toRightOf="@+id/button7"
+        android:layout_toEndOf="@+id/button7" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="53dp"
+        android:id="@+id/textView3" />
+
 </RelativeLayout>

@@ -2,7 +2,7 @@
     <string name="app_name">Basic RPG</string>
     <string name="overworld">Overworld</string>
     <string name="mapLocation">Map Location</string>
-    <string name="charcterName">Character Name</string>
+    <string name="charcterName">Name</string>
     <string name="permadeath">Permadeath</string>
     <string name="interactive">Interactive leveling</string>
     <string name="versionToast">0.0.1</string>
@@ -11,4 +11,6 @@
     <string name="newGame">New Game</string>
     <string name="edit_message">Test</string>
     <string name="save">Save</string>
+    <string name="saved">Saved</string>
+    <string name="charmaxlen">10</string>
 </resources>
