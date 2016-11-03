@@ -21,7 +21,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:maxLength="@string/charmaxlen"/>
+        android:maxLength="@string/charmaxlen"
+        android:onClick="blankName"/>
 
 
     <Button

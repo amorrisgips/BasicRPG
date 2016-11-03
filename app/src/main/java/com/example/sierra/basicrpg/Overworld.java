@@ -1,5 +1,6 @@
 package com.example.sierra.basicrpg;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -10,6 +11,5 @@ public class Overworld extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_overworld);
     }
-
 
 }

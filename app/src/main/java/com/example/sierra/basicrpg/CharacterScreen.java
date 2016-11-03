@@ -36,6 +36,9 @@ public class CharacterScreen extends AppCompatActivity {
         swiil = (Switch) findViewById(R.id.switchIL);
     }
 
+    public void blankName(View view){
+        charName.setText("");
+    }
 
     public void saveInfo(View view) throws IOException {
         message = charName.getText().toString();
@@ -60,6 +63,11 @@ public class CharacterScreen extends AppCompatActivity {
 
         SharedPreferences settings = getSharedPreferences(KVFILENAME, 0);
         SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean("permadeath", swipstate);
+        editor.putBoolean("iLeveling", swiilstate);
+
+        editor.apply();
+
         editor.putBoolean("permadeath", swipstate);
         editor.putBoolean("iLeveling", swiilstate);
 

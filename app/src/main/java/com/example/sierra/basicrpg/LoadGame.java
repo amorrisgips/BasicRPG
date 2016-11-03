@@ -1,14 +1,11 @@
 package com.example.sierra.basicrpg;
 
 import android.content.SharedPreferences;
-import android.support.v4.widget.CompoundButtonCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 
