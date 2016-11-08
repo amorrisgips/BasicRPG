@@ -1,15 +1,13 @@
 package com.example.sierra.basicrpg;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Overworld extends AppCompatActivity {
+public class Battle extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_overworld);
+        setContentView(R.layout.activity_battle);
     }
-
 }

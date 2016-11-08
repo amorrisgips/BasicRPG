@@ -10,8 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    public final static String KVFILENAME = "rpg_basic_savekv";
-    public static final String FILENAME = "rpg_basic_save";
+    public final static String KVFILENAME = "rpg_basic_save";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

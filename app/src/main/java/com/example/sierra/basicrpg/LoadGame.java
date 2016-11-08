@@ -6,18 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import java.io.FileInputStream;
 import java.io.IOException;
 
-import static com.example.sierra.basicrpg.MainActivity.FILENAME;
 import static com.example.sierra.basicrpg.MainActivity.KVFILENAME;
 
 public class LoadGame extends AppCompatActivity {
 
     public TextView textView;
+    public TextView messplay;
     public CheckBox swiilstate;
     public CheckBox swipstate;
     public String s;
+    public String se;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,26 +25,13 @@ public class LoadGame extends AppCompatActivity {
         setContentView(R.layout.activity_load_game);
 
         textView = (TextView) findViewById(R.id.textView3);
+        messplay = (TextView) findViewById(R.id.messplay);
         swiilstate = (CheckBox) findViewById(R.id.il);
         swipstate = (CheckBox) findViewById(R.id.pd);
 
     }
 
     public void dispmess(View view) throws IOException {
-        byte[] se = new byte[100];
-        int re;
-        s = "";
-        FileInputStream fis = openFileInput(FILENAME);
-        re = fis.read(se);
-        for(int i = 0; i < re; i++)
-        {
-            s = s + (char) se[i];
-        }
-
-        textView = (TextView) findViewById(R.id.messplay);
-        textView.setText(s);
-
-        fis.close();
 
         SharedPreferences settings = getSharedPreferences(KVFILENAME, 0);
         boolean swiil = settings.getBoolean("iLeveling", true);
@@ -57,5 +44,9 @@ public class LoadGame extends AppCompatActivity {
         {
             swipstate.setChecked(true);
         }
+        s = settings.getString("charName", "");
+
+        messplay.setText(se);
+        textView.setText(s);
     }
 }
