@@ -1,24 +1,30 @@
 package com.example.sierra.basicrpg;
 
-import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileNotFoundException;
+import android.widget.Spinner;
+import android.widget.Switch;
+import android.widget.Toast;
 import java.io.IOException;
 
-import static com.example.sierra.basicrpg.MainActivity.FILENAME;
-
+import static com.example.sierra.basicrpg.MainActivity.KVFILENAME;
 
 public class CharacterScreen extends AppCompatActivity {
 
     public EditText charName;
     public Button save;
+    public Switch swiil, swip;
+    public boolean swipstate = false;
+    public boolean swiilstate = false;
+    public String message;
+    public Spinner classes;
+    public String choice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +33,93 @@ public class CharacterScreen extends AppCompatActivity {
 
         charName = (EditText) findViewById(R.id.charName);
         save = (Button) findViewById(R.id.save);
+        swip = (Switch) findViewById(R.id.switchP);
+        swiil = (Switch) findViewById(R.id.switchIL);
+        classes = (Spinner) findViewById(R.id.classes);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.classes_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        classes.setAdapter(adapter);
+
+        swip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    swipstate = true;
+                }
+            }
+        });
+        swiil.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    swiilstate = true;
+                }
+            }
+        });
     }
 
+    public void blankName(View view){
+        charName.setText("");
+    }
 
-    public void saveInfo(View view) throws IOException {
+    public void saveInfo(View view) throws IOException, InterruptedException {
+        message = charName.getText().toString();
+        choice = classes.getSelectedItem().toString();
+        String CharName = message + " the " + choice;
+        int hp;
+        int mp;
+        int armPref;
+        int wepPref;
 
-        String message = charName.getText().toString();
+        switch(choice)
+        {
+            case "Warrior" :
+                hp = 25;
+                mp = 10;
+                armPref = 2;
+                wepPref = 2;
+                break;
+            case "Mage" :
+                hp = 15;
+                mp = 30;
+                armPref = 1;
+                wepPref = 1;
+                break;
+            case "Archer" :
+                hp = 20;
+                mp = 10;
+                armPref = 2;
+                wepPref = 4;
+                break;
+            case "Paladin" :
+                hp = 30;
+                mp = 15;
+                armPref = 3;
+                wepPref = 3;
+                break;
+            case "Thief" :
+                hp = 15;
+                mp = 10;
+                armPref = 4;
+                wepPref = 2;
+                break;
+            default:
+                hp = 10;
+                mp = 10;
+                armPref = 2;
+                wepPref = 2;
+        }
 
-        FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-        fos.write( message.getBytes());
-        fos.close();
+        Character Hero = new Character(CharName, hp, mp, armPref, wepPref);
+
+
+        SharedPreferences settings = getSharedPreferences(KVFILENAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean("permadeath", swipstate);
+        editor.putBoolean("iLeveling", swiilstate);
+        editor.putString("charName", CharName);
+
+        editor.apply();
+        Toast.makeText(getApplicationContext(),R.string.saved, Toast.LENGTH_SHORT).show();
     }
 
 

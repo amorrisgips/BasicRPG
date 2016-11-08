@@ -20,8 +20,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Overworld" />
-        <activity android:name=".MapLocation" />
         <activity android:name=".CharacterScreen" />
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -32,7 +30,8 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".Settings" />
-        <activity android:name=".LoadGame"></activity>
+        <activity android:name=".LoadGame" />
+        <activity android:name=".Battle"></activity>
     </application>
 
 </manifest>
