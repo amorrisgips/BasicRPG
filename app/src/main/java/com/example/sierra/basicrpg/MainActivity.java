@@ -46,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void toBattle(View view){
+
+        Intent intent = new Intent(this, Battle.class);
+        startActivity(intent);
+
+    }
+
     public void toSettings(View view) {
         Intent intent = new Intent(this, Settings.class);
         startActivity(intent);

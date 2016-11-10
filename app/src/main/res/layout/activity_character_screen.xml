@@ -67,4 +67,13 @@
         android:layout_alignLeft="@+id/switchP"
         android:layout_alignStart="@+id/switchP" />
 
+    <Button
+        android:text="Battle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/switchIL"
+        android:layout_toEndOf="@+id/switchIL"
+        android:id="@+id/tobattle" />
+
 </RelativeLayout>

@@ -1,6 +1,8 @@
 package com.example.sierra.basicrpg;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,12 +27,15 @@ public class CharacterScreen extends AppCompatActivity {
     public String message;
     public Spinner classes;
     public String choice;
+    public Button battle;
+    Character Hero = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_screen);
 
+        battle = (Button) findViewById(R.id.tobattle);
         charName = (EditText) findViewById(R.id.charName);
         save = (Button) findViewById(R.id.save);
         swip = (Switch) findViewById(R.id.switchP);
@@ -109,7 +114,7 @@ public class CharacterScreen extends AppCompatActivity {
                 wepPref = 2;
         }
 
-        Character Hero = new Character(CharName, hp, mp, armPref, wepPref);
+        Hero = new Character(CharName, hp, mp, armPref, wepPref);
 
 
         SharedPreferences settings = getSharedPreferences(KVFILENAME, 0);
@@ -122,5 +127,10 @@ public class CharacterScreen extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),R.string.saved, Toast.LENGTH_SHORT).show();
     }
 
+    public void toBattle(View view)
+    {
+        Intent intent = new Intent(this,Battle.class);
+        intent.putExtra("Character", Hero);
+    }
 
 }
