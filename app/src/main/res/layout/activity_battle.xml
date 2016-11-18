@@ -11,35 +11,100 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.sierra.basicrpg.Battle">
 
-    <ViewAnimator
-        android:id="@+id/charatk"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/CharSprite"
+        android:layout_marginBottom="23dp"
+        android:layout_above="@+id/button8"
+        android:layout_alignRight="@+id/button8"
+        android:layout_alignEnd="@+id/button8"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp"
+        app:srcCompat="@drawable/characterbase" />
 
-        <ImageView
-            android:layout_width="45dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/characterBase"
-            app:srcCompat="@drawable/characterbase" />
+    <ProgressBar
+        android:id="@+id/EnmyHp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:maxHeight="10dip"
+        android:minHeight="10dip"
+        android:progressDrawable="@drawable/progress_drawable_green"
+        android:layout_marginTop="11dp"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/characterattack"
-            android:id="@+id/characterAttack" />
+    <ProgressBar
+        android:id="@+id/CharHp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:maxHeight="10dip"
+        android:minHeight="10dip"
+        android:progressDrawable="@drawable/progress_drawable_green"
+        android:layout_alignBottom="@+id/CharSprite"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="38dp" />
 
-    </ViewAnimator>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/enemy1"
+        android:id="@+id/EnmySprite"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/CharSprite"
+        android:layout_alignEnd="@+id/CharSprite" />
+
+    <TextView
+        android:text="CharacterName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/CharaName"
+        android:layout_alignBottom="@+id/CharSprite"
+        android:layout_alignRight="@+id/button9"
+        android:layout_alignEnd="@+id/button9"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp" />
+
+    <TextView
+        android:text="EnemyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/EnmyName"
+        android:layout_below="@+id/EnmyHp"
+        android:layout_alignLeft="@+id/CharaName"
+        android:layout_alignStart="@+id/CharaName" />
 
     <Button
-        android:text="Button"
+        android:text="Attack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button8"
-        android:onClick="startFlip"
-        android:layout_alignParentTop="true"
+        android:onClick="attackAnim"
+        android:layout_marginBottom="49dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginEnd="17dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/CharHp"
+        android:layout_toStartOf="@+id/CharHp" />
+
+    <Button
+        android:text="Stun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button9"
+        android:layout_marginRight="51dp"
+        android:layout_marginEnd="51dp"
+        android:layout_alignBaseline="@+id/button8"
+        android:layout_alignBottom="@+id/button8"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="146dp"
-        android:layout_marginEnd="146dp" />
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

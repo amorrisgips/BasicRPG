@@ -74,6 +74,7 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/switchIL"
         android:layout_toEndOf="@+id/switchIL"
-        android:id="@+id/tobattle" />
+        android:id="@+id/tobattle"
+        android:onClick="toBattle" />
 
 </RelativeLayout>

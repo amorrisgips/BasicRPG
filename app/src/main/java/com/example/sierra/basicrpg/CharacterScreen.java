@@ -22,8 +22,8 @@ public class CharacterScreen extends AppCompatActivity {
     public EditText charName;
     public Button save;
     public Switch swiil, swip;
-    public boolean swipstate = false;
-    public boolean swiilstate = false;
+    public boolean swipstate = true;
+    public boolean swiilstate = true;
     public String message;
     public Spinner classes;
     public String choice;
@@ -36,10 +36,13 @@ public class CharacterScreen extends AppCompatActivity {
         setContentView(R.layout.activity_character_screen);
 
         battle = (Button) findViewById(R.id.tobattle);
+        battle.setClickable(false);
         charName = (EditText) findViewById(R.id.charName);
         save = (Button) findViewById(R.id.save);
         swip = (Switch) findViewById(R.id.switchP);
+        swip.setChecked(true);
         swiil = (Switch) findViewById(R.id.switchIL);
+        swiil.setChecked(true);
         classes = (Spinner) findViewById(R.id.classes);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.classes_array, android.R.layout.simple_spinner_item);
@@ -51,12 +54,18 @@ public class CharacterScreen extends AppCompatActivity {
                 if (isChecked) {
                     swipstate = true;
                 }
+                else {
+                    swipstate = false;
+                }
             }
         });
         swiil.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     swiilstate = true;
+                }
+                else {
+                    swiilstate = false;
                 }
             }
         });
@@ -125,12 +134,16 @@ public class CharacterScreen extends AppCompatActivity {
 
         editor.apply();
         Toast.makeText(getApplicationContext(),R.string.saved, Toast.LENGTH_SHORT).show();
+
+        battle.setClickable(true);
     }
 
     public void toBattle(View view)
     {
         Intent intent = new Intent(this,Battle.class);
         intent.putExtra("Character", Hero);
+        intent.putExtra("Enemy", new Enemy("Grem", 10, 2, 5));
+        startActivity(intent);
     }
 
 }
