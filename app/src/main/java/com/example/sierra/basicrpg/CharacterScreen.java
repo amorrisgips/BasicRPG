@@ -142,7 +142,7 @@ public class CharacterScreen extends AppCompatActivity {
     {
         Intent intent = new Intent(this,Battle.class);
         intent.putExtra("Character", Hero);
-        intent.putExtra("Enemy", new Enemy("Grem", 10, 2, 5));
+        intent.putExtra("Enemy", new Enemy("Grem", 40, 2, 5));
         startActivity(intent);
     }
 
