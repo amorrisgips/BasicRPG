@@ -31,7 +31,8 @@
 
         <activity android:name=".Settings" />
         <activity android:name=".LoadGame" />
-        <activity android:name=".Battle"></activity>
+        <activity android:name=".Battle" />
+        <activity android:name=".OverworldScreen"></activity>
     </application>
 
 </manifest>

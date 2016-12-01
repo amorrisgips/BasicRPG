@@ -6,7 +6,7 @@ package com.example.sierra.basicrpg;
 
 public class Inventory
 {
-    public static Equipment PlayerInv[] = new Equipment[30];
+    public static Equipment PlayerInv[] = new Equipment[10];
     public static int openSlot = 0;
 
     public static void addEquipment(Equipment e)

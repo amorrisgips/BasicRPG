@@ -29,28 +29,5 @@ public class Armor extends Equipment //implements Parcelable
         return def;
     }
 
-    /*@Override
-    public int describeContents()
-    {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags)
-    {
-        dest.writeInt(armType);
-        dest.writeInt(def);
-    }
-
-    public static final Parcelable.Creator CREATOR = new Creator() {
-        @Override
-        public Armor createFromParcel(Parcel source) {
-            return new Armor;
-        }
-
-        @Override
-        public Object[] newArray(int size) {
-            return new Object[0];
-        }
-    }*/
 }

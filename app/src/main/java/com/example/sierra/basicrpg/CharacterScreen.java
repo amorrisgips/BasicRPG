@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 import java.io.IOException;
+import java.io.Serializable;
 
 import static com.example.sierra.basicrpg.MainActivity.KVFILENAME;
 
@@ -138,11 +139,10 @@ public class CharacterScreen extends AppCompatActivity {
         battle.setClickable(true);
     }
 
-    public void toBattle(View view)
+    public void toMap(View view)
     {
-        Intent intent = new Intent(this,Battle.class);
+        Intent intent = new Intent(this,OverworldScreen.class);
         intent.putExtra("Character", Hero);
-        intent.putExtra("Enemy", new Enemy("Grem", 40, 2, 5));
         startActivity(intent);
     }
 
