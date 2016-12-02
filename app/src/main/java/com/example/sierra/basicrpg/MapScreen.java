@@ -8,7 +8,7 @@ public class MapScreen
 {
 
 
-    public MapScreen(int upid, int rightid, int downid, int leftid)
+    public MapScreen(int x, int y)
     {
 
     }
