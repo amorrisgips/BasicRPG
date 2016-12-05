@@ -45,7 +45,7 @@ public class Battle extends AppCompatActivity {
         Ehealth = bad.hp;
 
         chnm = (TextView) this.findViewById(R.id.CharaName);
-        chnm.setText(go.charName);
+        chnm.setText(go.charName + "  lvl" + go.getLevel());
 
         ennm = (TextView) this.findViewById(R.id.EnmyName);
         ennm.setText(bad.enemyName);

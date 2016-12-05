@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.Serializable;
 
 import static com.example.sierra.basicrpg.MainActivity.KVFILENAME;
+import static com.example.sierra.basicrpg.R.drawable.enemy1;
 
 public class CharacterScreen extends AppCompatActivity {
 
@@ -91,37 +92,37 @@ public class CharacterScreen extends AppCompatActivity {
                 hp = 25;
                 mp = 10;
                 armPref = 2;
-                wepPref = 2;
+                wepPref = 3;
                 break;
             case "Mage" :
                 hp = 15;
-                mp = 30;
+                mp = 23;
                 armPref = 1;
                 wepPref = 1;
                 break;
             case "Archer" :
-                hp = 20;
-                mp = 10;
+                hp = 23;
+                mp = 13;
                 armPref = 2;
-                wepPref = 4;
+                wepPref = 2;
                 break;
             case "Paladin" :
                 hp = 30;
-                mp = 15;
-                armPref = 3;
-                wepPref = 3;
+                mp = 5;
+                armPref = 5;
+                wepPref = 5;
                 break;
             case "Thief" :
-                hp = 15;
-                mp = 10;
-                armPref = 4;
+                hp = 20;
+                mp = 15;
+                armPref = 3;
                 wepPref = 2;
                 break;
             default:
                 hp = 10;
                 mp = 10;
-                armPref = 2;
-                wepPref = 2;
+                armPref = 10;
+                wepPref = 10;
         }
 
         Hero = new Character(CharName, hp, mp, armPref, wepPref);
@@ -143,6 +144,7 @@ public class CharacterScreen extends AppCompatActivity {
     {
         Intent intent = new Intent(this,OverworldScreen.class);
         intent.putExtra("Character", Hero);
+        //intent.putExtra("Enemy", new Enemy("Grem", 10, 1, 1, 2));
         startActivity(intent);
     }
 

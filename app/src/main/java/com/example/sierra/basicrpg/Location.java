@@ -9,10 +9,19 @@ public class Location
     int id;
     int loc;
     int sprite;
-    public Location(int idi, int loci, int spritei)
+    boolean u;
+    boolean l;
+    boolean r;
+    boolean d;
+
+    public Location(int idi, int spritei, boolean up, boolean left, boolean right, boolean down)
     {
         id = idi;
-        loc = loci;
         sprite = spritei;
+        u = up;
+        l = left;
+        r = right;
+        d = down;
+
     }
 }

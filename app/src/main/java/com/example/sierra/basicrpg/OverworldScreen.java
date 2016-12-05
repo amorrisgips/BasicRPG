@@ -1,14 +1,45 @@
 package com.example.sierra.basicrpg;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
+
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.Arrays;
 
+import static com.example.sierra.basicrpg.R.drawable.nullimage2;
+
 public class OverworldScreen extends AppCompatActivity {
 
+    private GoogleApiClient client;
+    public ImageView c1;
+    public ImageView c2;
+    public ImageView c3;
+    public ImageView c4;
+    public ImageView c5;
+    public ImageView c6;
+    public ImageView c7;
+    public ImageView c8;
+    public ImageView c9;
+
+    public Location cl1;
+    public Location cl2;
+    public Location cl3;
+    public Location cl4;
+    public Location cl5;
+    public Location cl6;
+    public Location cl7;
+    public Location cl8;
+    public Location cl9;
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_overworld_screen);
@@ -16,27 +47,55 @@ public class OverworldScreen extends AppCompatActivity {
 
         Character go = (Character) intent.getSerializableExtra("Character");
 
-        /*Enemy eL1[] = new Enemy[10];
-        eL1[0] = new Enemy("Grem", 1, 1, 1, 1);
-        eL1[1] = new Enemy("Troz", 1, 1, 1, 2);
-        eL1[2] = new Enemy("Shrom", 1, 1, 1, 3);
-        eL1[3] = new Enemy("Blight", 1, 1, 1, 4);
-        eL1[4] = new Enemy("Grem", 1, 1, 1, 1);
-        eL1[5] = new Enemy("Troz", 1, 1, 1, 2);
-        eL1[6] = new Enemy("Shrom", 1, 1, 1, 3);
-        eL1[7] = new Enemy("Blight", 1, 1, 1, 4);
-        eL1[8] = new Enemy("Grem", 1, 1, 1, 1);
-        eL1[9] = new Enemy("Grem", 1, 1, 1, 1);*/
+        c1 = (ImageView) findViewById(R.id.cell1);
+        c2 = (ImageView) findViewById(R.id.cell2);
+        c3 = (ImageView) findViewById(R.id.cell3);
+        c4 = (ImageView) findViewById(R.id.cell4);
+        c5 = (ImageView) findViewById(R.id.cell5);
+        c6 = (ImageView) findViewById(R.id.cell6);
+        c7 = (ImageView) findViewById(R.id.cell7);
+        c8 = (ImageView) findViewById(R.id.cell8);
+        c9 = (ImageView) findViewById(R.id.cell9);
 
-        //todo work on map class and finish overworld
+        Screen map[] = new Screen[9];
+        Arrays.fill(map, new Screen());
 
-        //todo use x and y as a seed to generate random stuff
+        int temp = intent.getIntExtra("Location", 5);
 
-        //todo make a list that adds the seed to it as you enter a screen and removes treasure when you return
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    public void setScreen(Screen s)
+    {
+        cl1 = s.l1;
+    }
+
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("OverworldScreen Page")
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
 
 
-        Location map[][] = new Location[9][9];
-        Arrays.fill(map,new Location(0,nullimage2,0)
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+
+
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
     }
 }
