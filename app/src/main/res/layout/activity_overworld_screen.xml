@@ -40,6 +40,7 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/arrowright"
         android:background="@null"
+        android:onClick="setCharLoc"
         android:id="@+id/rightarrow"
         android:layout_above="@+id/downarrow"
         android:layout_toRightOf="@+id/downarrow"

@@ -14,10 +14,11 @@ public class Location
     boolean r;
     boolean d;
 
-    public Location(int idi, int spritei, boolean up, boolean left, boolean right, boolean down)
+    public Location(int idi, int spritei,int loci, boolean up, boolean left, boolean right, boolean down)
     {
         id = idi;
         sprite = spritei;
+        loc = loci;
         u = up;
         l = left;
         r = right;
