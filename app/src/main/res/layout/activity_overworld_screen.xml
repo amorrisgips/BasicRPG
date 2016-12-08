@@ -12,53 +12,9 @@
     android:background="@drawable/backgroundforest"
     tools:context="com.example.sierra.basicrpg.OverworldScreen">
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/arrowup"
-        android:background="@null"
-        android:layout_marginLeft="47dp"
-        android:layout_marginStart="47dp"
-        android:layout_marginBottom="102dp"
-        android:id="@+id/uparrow"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/arrowdown"
-        android:background="@null"
-        android:id="@+id/downarrow"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/uparrow"
-        android:layout_alignStart="@+id/uparrow" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/arrowright"
-        android:background="@null"
-        android:onClick="setCharLoc"
-        android:id="@+id/rightarrow"
-        android:layout_above="@+id/downarrow"
-        android:layout_toRightOf="@+id/downarrow"
-        android:layout_toEndOf="@+id/downarrow" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/arrowleft"
-        android:background="@null"
-        android:id="@+id/leftarrow"
-        android:layout_above="@+id/downarrow"
-        android:layout_toStartOf="@+id/downarrow"
-        android:layout_toLeftOf="@+id/downarrow" />
-
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="73dp"
         app:srcCompat="@drawable/nullimage"
         android:layout_marginTop="22dp"
         android:id="@+id/cell1"
@@ -67,8 +23,8 @@
         android:layout_alignStart="@+id/uparrow" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="73dp"
         app:srcCompat="@drawable/nullimage"
         android:layout_marginRight="45dp"
         android:layout_marginEnd="45dp"
@@ -78,16 +34,16 @@
         android:layout_alignParentEnd="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="73dp"
         app:srcCompat="@drawable/nullimage"
         android:id="@+id/cell2"
         android:layout_alignTop="@+id/cell1"
         android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="73dp"
         app:srcCompat="@drawable/nullimage"
         android:id="@+id/cell7"
         android:layout_alignTop="@+id/cell8"
@@ -95,8 +51,8 @@
         android:layout_alignStart="@+id/cell4" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="73dp"
         app:srcCompat="@drawable/nullimage"
         android:id="@+id/cell5"
         android:layout_alignTop="@+id/cell4"
@@ -104,8 +60,8 @@
         android:layout_alignStart="@+id/cell2" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="73dp"
         app:srcCompat="@drawable/nullimage"
         android:id="@+id/cell6"
         android:layout_alignTop="@+id/cell5"
@@ -113,8 +69,8 @@
         android:layout_alignStart="@+id/cell3" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="73dp"
         app:srcCompat="@drawable/nullimage"
         android:layout_marginTop="30dp"
         android:id="@+id/cell4"
@@ -123,8 +79,8 @@
         android:layout_alignStart="@+id/cell1" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="73dp"
         app:srcCompat="@drawable/nullimage"
         android:id="@+id/cell8"
         android:layout_alignTop="@+id/cell9"
@@ -132,12 +88,81 @@
         android:layout_alignStart="@+id/cell5" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="73dp"
         app:srcCompat="@drawable/nullimage"
         android:id="@+id/cell9"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/cell6"
         android:layout_alignLeft="@+id/cell6"
         android:layout_alignStart="@+id/cell6" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/buttonf"
+        android:id="@+id/selectButton"
+        android:background="@null"
+        android:layout_alignTop="@+id/uparrow"
+        android:layout_alignRight="@+id/cell7"
+        android:layout_alignEnd="@+id/cell7"
+        android:layout_marginTop="37dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/arrowleft"
+        android:background="@null"
+        android:id="@+id/leftarrow"
+        android:onClick="moveLeft"
+        android:layout_below="@+id/cell7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="52dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/arrowup"
+        android:background="@null"
+        android:id="@+id/uparrow"
+        android:onClick="moveUp"
+        android:layout_below="@+id/cell7"
+        android:layout_toRightOf="@+id/leftarrow"
+        android:layout_toEndOf="@+id/leftarrow" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/arrowright"
+        android:background="@null"
+        android:onClick="moveRight"
+        android:id="@+id/rightarrow"
+        android:layout_alignTop="@+id/leftarrow"
+        android:layout_toRightOf="@+id/downarrow"
+        android:layout_toEndOf="@+id/downarrow" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/arrowdown"
+        android:background="@null"
+        android:id="@+id/downarrow"
+        android:onClick="moveDown"
+        android:layout_below="@+id/leftarrow"
+        android:layout_toRightOf="@+id/leftarrow"
+        android:layout_toEndOf="@+id/leftarrow" />
+
+    <TextView
+        android:text="GO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_alignTop="@+id/leftarrow"
+        android:layout_toRightOf="@+id/leftarrow"
+        android:layout_toEndOf="@+id/leftarrow"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp" />
+
 </RelativeLayout>

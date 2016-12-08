@@ -12,6 +12,7 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import static com.example.sierra.basicrpg.R.drawable.buttonf;
 import static com.example.sierra.basicrpg.R.drawable.nullimage;
 
 public class OverworldScreen extends AppCompatActivity {
@@ -20,11 +21,15 @@ public class OverworldScreen extends AppCompatActivity {
 
     public ImageView c[] = new ImageView[9];
     public Location cl[] = new Location[9];
-    Location blank = new Location(0, nullimage,0,true, true, true, true);
+    Location blank = new Location(0, nullimage,null,true, true, true, true);
 
     public int curscreen;
-    public int curlocation = 1;
+    public int curlocation = 4;
     public int prevLoc = curlocation;
+
+    int x;
+    int y;
+
 
     Character go;
 
@@ -48,10 +53,11 @@ public class OverworldScreen extends AppCompatActivity {
         c[7] = (ImageView) findViewById(R.id.cell8);
         c[8] = (ImageView) findViewById(R.id.cell9);
 
-        for(int i = 0; i < cl.length; i++)
-        {
-            cl[i] = blank;
-        }
+
+        setScreen(new Screen());
+
+        moveChar(1);
+        moveChar(4);
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
@@ -59,7 +65,8 @@ public class OverworldScreen extends AppCompatActivity {
     public void setScreen(Screen s)
     {
         for(int i = 0; i < s.l.length; i++ )
-        cl[i] = s.l[i];
+            cl[i] = s.l[i];
+        cl[curlocation] = blank;
 
         c[0].setImageResource(cl[0].sprite);
         c[1].setImageResource(cl[1].sprite);
@@ -85,10 +92,11 @@ public class OverworldScreen extends AppCompatActivity {
         {
             case 1:
             {
-                if (curlocation > 3){
+                if (curlocation > 2){
                     curlocation = curlocation - 3;
                     setCharLoc();
                 }
+                break;
             }
 
             case 2:
@@ -97,6 +105,7 @@ public class OverworldScreen extends AppCompatActivity {
                     curlocation--;
                     setCharLoc();
                 }
+                break;
             }
             case 3:
             {
@@ -104,15 +113,41 @@ public class OverworldScreen extends AppCompatActivity {
                     curlocation++;
                     setCharLoc();
                 }
+                break;
             }
             case 4:
             {
-                if(curlocation <5){
-                    curlocation = curlocation - 3;
+                if(curlocation <6){
+                    curlocation = curlocation + 3;
                     setCharLoc();
                 }
+                break;
             }
         }
+        if(curlocation == 8)
+        {
+
+        }
+    }
+
+    public void moveUp(View view)
+    {
+        moveChar(1);
+    }
+
+    public void moveLeft(View view)
+    {
+        moveChar(2);
+    }
+
+    public void moveRight(View view)
+    {
+        moveChar(3);
+    }
+
+    public void moveDown(View view)
+    {
+        moveChar(4);
     }
 
     public Action getIndexApiAction() {
@@ -129,7 +164,6 @@ public class OverworldScreen extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
 
         client.connect();
         AppIndex.AppIndexApi.start(client, getIndexApiAction());
