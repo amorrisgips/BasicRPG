@@ -160,36 +160,37 @@ public class OverworldScreen extends AppCompatActivity {
     public void clickFunk(View view)
     {
         DialogFragment dialog = new BlankLoc();
-        Intent intent = new Intent(this,OverworldScreen.class);
+        Intent intent = new Intent(this,Battle.class);
         intent.putExtra("Character", go);
 
         switch(cl[curlocation].id)
         {
             case 1:
-                intent.putExtra("Enemy", new Enemy("Grem", 10, 1, 1, 2));
+                intent.putExtra("Enemy", new Enemy("Grem", 20, 2, 1, 1));
                 startActivity(intent);
                 break;
             case 2:
-                intent.putExtra("Enemy", new Enemy("Troz", 10, 1, 1, 2));
+                intent.putExtra("Enemy", new Enemy("Troz", 20, 1, 2, 2));
                 startActivity(intent);
                 break;
             case 3:
-                intent.putExtra("Enemy", new Enemy("Mush", 10, 1, 1, 2));
+                intent.putExtra("Enemy", new Enemy("Mush", 15, 1, 1, 3));
                 startActivity(intent);
                 break;
             case 4:
-                intent.putExtra("Enemy", new Enemy("Blight", 10, 1, 1, 2));
+                intent.putExtra("Enemy", new Enemy("Blight", 15,0, 3, 4));
                 startActivity(intent);
                 break;
             case 5:
                 //sign
+                dialog.show(getFragmentManager(), "BlankLocTag");
                 break;
             case 6:
                  //chest
                 break;
 
         }
-        dialog.show(getFragmentManager(), "BlankLocTag");
+
     }
 
 

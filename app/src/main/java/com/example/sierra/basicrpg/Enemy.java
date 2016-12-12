@@ -35,14 +35,17 @@ public class Enemy implements Serializable
         atk = atak;
         c = draw;
 
-        switch(c)
-        {
+    }
+
+    public void getSprite()
+    {
+        switch (c) {
             case 1:
                 sprite = enemy1;
                 atkSprite = enemy1atk;
                 break;
             case 2:
-                sprite =enemy2;
+                sprite = enemy2;
                 atkSprite = enemy2atk;
                 break;
             case 3:
@@ -50,13 +53,11 @@ public class Enemy implements Serializable
                 atkSprite = enemy3atk;
                 break;
             case 4:
-                sprite =enemy4;
+                sprite = enemy4;
                 atkSprite = enemy4atk;
                 break;
 
         }
     }
-
-
 
 }

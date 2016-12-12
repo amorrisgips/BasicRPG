@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * Created by aamorris on 11/7/2016.
  */
 
-public class Armor extends Equipment //implements Parcelable
+public class Armor extends Equipment
 {
     public int armType;
     //head = 1, chest = 2, arms = 3, legs = 4, feet = 5;

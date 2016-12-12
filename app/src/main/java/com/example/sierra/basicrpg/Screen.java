@@ -42,32 +42,29 @@ public class Screen
 
             switch (rand)
             {
-                case 1&2&3&4:
+
+                case 1:
                     temp.id = 1;
-                    rando =  (4 * Math.random());
-                    rand = (int)Math.round(rando);
-                    switch (rand)
-                    {
-                        case 1:
-                            temp.sprite = enemy1;
-                            break;
-                        case 2:
-                            temp.sprite = enemy2;
-                            break;
-                        case 3:
-                            temp.sprite = enemy3;
-                            break;
-                        case 4:
-                            temp.sprite = enemy4;
-                            break;
-                    }
+                    temp.sprite = enemy1;
+                    break;
+                case 2:
+                    temp.id = 2;
+                    temp.sprite = enemy2;
+                    break;
+                case 3:
+                    temp.id = 3;
+                    temp.sprite = enemy3;
+                    break;
+                case 4:
+                    temp.id = 4;
+                    temp.sprite = enemy4;
                     break;
                 case 5:
-                    temp.id = 2;
+                    temp.id = 5;
                     temp.sprite = sign;
                     break;
                 case 6:
-                    temp.id = 3;
+                    temp.id = 6;
                     temp.sprite = chest;
                     break;
             }

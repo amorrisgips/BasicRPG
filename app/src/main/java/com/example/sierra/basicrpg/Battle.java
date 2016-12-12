@@ -41,6 +41,8 @@ public class Battle extends AppCompatActivity {
         go = (Character) intent.getSerializableExtra("Character");
         bad = (Enemy) intent.getSerializableExtra("Enemy");
 
+        bad.getSprite();
+
         Chealth = go.maxHealth;
         Ehealth = bad.hp;
 
