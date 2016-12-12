@@ -1,10 +1,12 @@
 package com.example.sierra.basicrpg;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.google.android.gms.appindexing.Action;
@@ -12,7 +14,6 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import static com.example.sierra.basicrpg.R.drawable.buttonf;
 import static com.example.sierra.basicrpg.R.drawable.nullimage;
 
 public class OverworldScreen extends AppCompatActivity {
@@ -22,6 +23,8 @@ public class OverworldScreen extends AppCompatActivity {
     public ImageView c[] = new ImageView[9];
     public Location cl[] = new Location[9];
     Location blank = new Location(0, nullimage,null,true, true, true, true);
+
+    public ImageButton click;
 
     public int curscreen;
     public int curlocation = 4;
@@ -53,11 +56,14 @@ public class OverworldScreen extends AppCompatActivity {
         c[7] = (ImageView) findViewById(R.id.cell8);
         c[8] = (ImageView) findViewById(R.id.cell9);
 
+        click = (ImageButton) findViewById(R.id.selectButton);
 
         setScreen(new Screen());
 
         moveChar(1);
         moveChar(4);
+
+
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
@@ -149,6 +155,43 @@ public class OverworldScreen extends AppCompatActivity {
     {
         moveChar(4);
     }
+
+
+    public void clickFunk(View view)
+    {
+        DialogFragment dialog = new BlankLoc();
+        Intent intent = new Intent(this,OverworldScreen.class);
+        intent.putExtra("Character", go);
+
+        switch(cl[curlocation].id)
+        {
+            case 1:
+                intent.putExtra("Enemy", new Enemy("Grem", 10, 1, 1, 2));
+                startActivity(intent);
+                break;
+            case 2:
+                intent.putExtra("Enemy", new Enemy("Troz", 10, 1, 1, 2));
+                startActivity(intent);
+                break;
+            case 3:
+                intent.putExtra("Enemy", new Enemy("Mush", 10, 1, 1, 2));
+                startActivity(intent);
+                break;
+            case 4:
+                intent.putExtra("Enemy", new Enemy("Blight", 10, 1, 1, 2));
+                startActivity(intent);
+                break;
+            case 5:
+                //sign
+                break;
+            case 6:
+                 //chest
+                break;
+
+        }
+        dialog.show(getFragmentManager(), "BlankLocTag");
+    }
+
 
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()

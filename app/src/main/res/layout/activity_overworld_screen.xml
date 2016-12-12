@@ -103,6 +103,7 @@
         app:srcCompat="@drawable/buttonf"
         android:id="@+id/selectButton"
         android:background="@null"
+        android:onClick="clickFunk"
         android:layout_alignTop="@+id/uparrow"
         android:layout_alignRight="@+id/cell7"
         android:layout_alignEnd="@+id/cell7"

@@ -1,5 +1,7 @@
 package com.example.sierra.basicrpg;
 
+import android.content.Intent;
+
 import java.util.Arrays;
 
 import static com.example.sierra.basicrpg.R.drawable.chest;
@@ -34,13 +36,13 @@ public class Screen
 
         for(int i = 0; i < l.length; i++)
         {
-            double rando = (int) (8 * Math.random());
+            double rando = (int) (16 * Math.random());
             int rand = (int) Math.round(rando);
             Location temp = new Location(0, nullimage, null, true, true, true, true);
 
             switch (rand)
             {
-                case 1&2:
+                case 1&2&3&4:
                     temp.id = 1;
                     rando =  (4 * Math.random());
                     rand = (int)Math.round(rando);
@@ -60,11 +62,11 @@ public class Screen
                             break;
                     }
                     break;
-                case 3:
+                case 5:
                     temp.id = 2;
                     temp.sprite = sign;
                     break;
-                case 4:
+                case 6:
                     temp.id = 3;
                     temp.sprite = chest;
                     break;
