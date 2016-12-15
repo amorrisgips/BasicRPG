@@ -1,8 +1,10 @@
 package com.example.sierra.basicrpg;
 
 import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,12 +28,11 @@ public class OverworldScreen extends AppCompatActivity {
 
     public ImageButton click;
 
-    public int curscreen;
     public int curlocation = 4;
     public int prevLoc = curlocation;
 
-    int x;
-    int y;
+    int x ;
+    int y ;
 
 
     Character go;
@@ -58,12 +59,10 @@ public class OverworldScreen extends AppCompatActivity {
 
         click = (ImageButton) findViewById(R.id.selectButton);
 
-        setScreen(new Screen());
+        setScreen(new Screen(x, y));
 
         moveChar(1);
         moveChar(4);
-
-
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
@@ -92,6 +91,31 @@ public class OverworldScreen extends AppCompatActivity {
         prevLoc = curlocation;
     }
 
+    public void setNewScreen(int c)
+    {
+        int tmpx = x;
+        int tmpy = y;
+        switch (c)
+        {
+            case 1:
+                y++;
+                break;
+            case 2:
+                x--;
+                break;
+            case 3:
+                x++;
+                break;
+            case 4:
+                y--;
+                break;
+        }
+        setScreen(new Screen(tmpx, tmpy));
+
+        moveChar(1);
+        moveChar(4);
+    }
+
     public void moveChar(int dir)
     {
         switch(dir)
@@ -102,6 +126,10 @@ public class OverworldScreen extends AppCompatActivity {
                     curlocation = curlocation - 3;
                     setCharLoc();
                 }
+                else
+                {
+                    setNewScreen(1);
+                }
                 break;
             }
 
@@ -111,6 +139,10 @@ public class OverworldScreen extends AppCompatActivity {
                     curlocation--;
                     setCharLoc();
                 }
+                else
+                {
+                    setNewScreen(2);
+                }
                 break;
             }
             case 3:
@@ -118,6 +150,10 @@ public class OverworldScreen extends AppCompatActivity {
                 if(!(curlocation == 2) && !(curlocation == 5) && !(curlocation == 8)){
                     curlocation++;
                     setCharLoc();
+                }
+                else
+                {
+                    setNewScreen(3);
                 }
                 break;
             }
@@ -127,13 +163,14 @@ public class OverworldScreen extends AppCompatActivity {
                     curlocation = curlocation + 3;
                     setCharLoc();
                 }
+                else
+                {
+                    setNewScreen(4);
+                }
                 break;
             }
         }
-        if(curlocation == 8)
-        {
 
-        }
     }
 
     public void moveUp(View view)
@@ -165,6 +202,9 @@ public class OverworldScreen extends AppCompatActivity {
 
         switch(cl[curlocation].id)
         {
+            case 0:
+                dialog.show(getFragmentManager(), "MyDialogFragmentTag");
+                break;
             case 1:
                 intent.putExtra("Enemy", new Enemy("Grem", 20, 2, 1, 1));
                 startActivity(intent);
@@ -183,16 +223,30 @@ public class OverworldScreen extends AppCompatActivity {
                 break;
             case 5:
                 //sign
-                dialog.show(getFragmentManager(), "BlankLocTag");
+                AlertDialog.Builder signPresent = new AlertDialog.Builder(this);
+                signPresent.setMessage(x + ", " + y);
+                signPresent.show();
                 break;
             case 6:
                  //chest
+                break;
+            default:
+                Intent iintent = new Intent(this, InvView.class);
+                iintent.putExtra("Character", go);
+                iintent.putExtra("Other", makeInv());
+                startActivity(iintent);
                 break;
 
         }
 
     }
 
+    public Inventory makeInv()
+    {
+        Inventory temp = new Inventory();
+        temp.randEquip();
+        return temp;
+    }
 
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()

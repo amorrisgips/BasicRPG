@@ -13,12 +13,32 @@ public class Armor extends Equipment
     //head = 1, chest = 2, arms = 3, legs = 4, feet = 5;
     public int def;
     public int pref;
+    public String name;
 
     public Armor(int dfns, int type, int preference)
     {
         def = dfns;
         armType = type;
         pref = preference;
+
+        switch(armType)
+        {
+            case 1:
+                name = "helmet";
+                break;
+            case 2:
+                name = "chest";
+                break;
+            case 3:
+                name = "arms";
+                break;
+            case 4:
+                name = "legs";
+                break;
+            case 5:
+                name = "feet";
+                break;
+        }
     }
 
     public int retType()

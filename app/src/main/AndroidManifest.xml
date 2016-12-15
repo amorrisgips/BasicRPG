@@ -33,7 +33,8 @@
         <activity android:name=".LoadGame" />
         <activity android:name=".Battle" />
         <activity android:name=".OverworldScreen" />
-        <activity android:name=".LootScreen"></activity>
+        <activity android:name=".LootScreen" />
+        <activity android:name=".InvView"></activity>
     </application>
 
 </manifest>

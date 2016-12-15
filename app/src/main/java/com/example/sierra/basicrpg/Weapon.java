@@ -9,6 +9,7 @@ public class Weapon extends Equipment
 
     public int pref;
     public int atkMod;
+    public int name;
 
     public Weapon(int atk, int prf)
     {

@@ -8,5 +8,5 @@ import java.io.Serializable;
 
 public class Equipment implements Serializable
 {
-
+    public String name;
 }

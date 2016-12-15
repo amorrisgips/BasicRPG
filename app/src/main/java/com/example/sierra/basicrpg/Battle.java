@@ -83,6 +83,12 @@ public class Battle extends AppCompatActivity {
         enmy.setImageResource(bad.sprite);
     }
 
+    public void endBattle()
+    {
+        Intent intent = new Intent(this, OverworldScreen.class);
+        intent.putExtra("Character", go);
+    }
+
     public void attackAnim(View view) {
         int temp = Ehealth;
         chara.setImageResource(go.atkSprite);

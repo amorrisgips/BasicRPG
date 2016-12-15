@@ -9,8 +9,11 @@ import static com.example.sierra.basicrpg.R.drawable.enemy1;
 import static com.example.sierra.basicrpg.R.drawable.enemy2;
 import static com.example.sierra.basicrpg.R.drawable.enemy3;
 import static com.example.sierra.basicrpg.R.drawable.enemy4;
+import static com.example.sierra.basicrpg.R.drawable.merchant;
 import static com.example.sierra.basicrpg.R.drawable.nullimage;
 import static com.example.sierra.basicrpg.R.drawable.sign;
+import static com.example.sierra.basicrpg.R.drawable.smith;
+import static com.example.sierra.basicrpg.R.drawable.trainer;
 
 /**
  * Created by aamorris on 12/5/2016.
@@ -19,29 +22,20 @@ import static com.example.sierra.basicrpg.R.drawable.sign;
 public class Screen
 {
 
-    Location l[] = new Location[9];
     Location blank = new Location(0, nullimage,null,true, true, true, true);
+    Location l[] = new Location[9];
 
-    public Screen(Location a[])
-    {
-        for(int j = 0; j < l.length; j++ )
-            l[j] = blank;
 
-        for(int i = 0; i < a.length; i++ )
-            l[i] = a[i];
-    }
-
-    public Screen()
+    public Screen(int x, int y)
     {
 
-        for(int i = 0; i < l.length; i++)
-        {
+
+        for (int i = 0; i < l.length; i++) {
             double rando = (int) (16 * Math.random());
             int rand = (int) Math.round(rando);
             Location temp = new Location(0, nullimage, null, true, true, true, true);
 
-            switch (rand)
-            {
+            switch (rand) {
 
                 case 1:
                     temp.id = 1;
@@ -69,6 +63,15 @@ public class Screen
                     break;
             }
             l[i] = temp;
+        }
+        if(x == 0 && y == 0)
+        {
+            l[0].id = 20;
+            l[0].sprite = trainer;
+            l[2].id = 21;
+            l[2].sprite = smith;
+            l[3].id = 22;
+            l[3].sprite = merchant;
         }
     }
 
