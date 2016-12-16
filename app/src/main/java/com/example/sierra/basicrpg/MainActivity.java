@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toSettings(View view) {
-        Intent intent = new Intent(this, Settings.class);
+        Intent intent = new Intent(this, InvView.class);
         startActivity(intent);
     }
 
